@@ -4,8 +4,7 @@
 #Id Aluno: 2586101058
 #Ver.: 20250717.1806
 
-import os
-import curses
+import os, curses
 
 cardapio={
     1: {"prodnome": "Cafe Expresso",
