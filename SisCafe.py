@@ -35,7 +35,11 @@ cardapio={
         "preco": 4.50}
 }
 
+def limparTela():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def abertura():
+    limparTela()
     print("+----------------------------------------------------------------+")
     print("+                     Coffee Shops Tia Rosa                      +")
     print("+----------------------------------------------------------------+")
@@ -50,18 +54,21 @@ def abertura():
     print("|                                                                |")
     print("+----------------------------------------------------------------+")
 
+def ListarCardapio():
+    limparTela()
+    print("CARDAPIO:")
+    for id_produto, dados in cardapio.items():
+        print(f"\n{id_produto}",f"{dados['prodnome']}..............",f"Preço: R$ {dados['preco']:.2f}")
+        #print(f"Nome: {dados['prodnome']}")
+        print(f"Ingredientes: {', '.join(dados['ingredientes'])}")
+        #print(f"Preço: R$ {dados['preco']:.2f}")
 
 
 def main():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    opcao=0
     abertura()
-
-    print("Produtos disponíveis na cafeteria:")
-    for id_produto, dados in cardapio.items():
-        print(f"\nID: {id_produto}")
-        print(f"Nome: {dados['prodnome']}")
-        print(f"Ingredientes: {', '.join(dados['ingredientes'])}")
-        print(f"Preço: R$ {dados['preco']:.2f}")
+    opcao=int(input("Escolha a operação:") or 1)
+    ListarCardapio()
 
     print("\n")
     print(cardapio[3]["ingredientes"])
