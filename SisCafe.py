@@ -2,8 +2,10 @@
 #Prof.: Francisco Lima
 #aluno: Clauber Araújo Lima
 #Id Aluno: 2586101058
+#Ver.:20250717.1429
 
 import os
+import curses
 
 cardapio={
     1: {"prodnome": "Café Expresso",
@@ -75,4 +77,3 @@ def main():
 
 if __name__== "__main__":
     main()
-
