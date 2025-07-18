@@ -5,6 +5,7 @@
 #Ver.: 20250717.1806
 
 import os, curses
+import funcoes
 
 cardapio={
     1: {"prodnome": "Cafe Expresso",
@@ -72,7 +73,8 @@ def main():
     ListarCardapio()
 
     print("\n")
-    print(cardapio[3]["ingredientes"])
+    #print(cardapio[3]["ingredientes"])
+    funcoes.teste()
 
 if __name__== "__main__":
     main()
