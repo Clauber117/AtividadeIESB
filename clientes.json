@@ -1,0 +1,34 @@
+{
+    "1": {
+        "cpf": "12345678901",
+        "nome": "Francisco Lima"
+    },
+    "2": {
+        "cpf": "34545433476",
+        "nome": "Luiz Lins"
+    },
+    "3": {
+        "cpf": "86452454565",
+        "nome": "Láucia Ávila"
+    },
+    "4": {
+        "cpf": "83434857205",
+        "nome": "Gabriel Junior"
+    },
+    "5": {
+        "cpf": "34529485344",
+        "nome": "Clauber Lima"
+    },
+    "6": {
+        "cpf": "34523454676",
+        "nome": "Joao Henrique"
+    },
+    "7": {
+        "cpf": "75845366576",
+        "nome": "Vinicius Souza"
+    },
+    "8": {
+        "cpf": "34587343459",
+        "nome": "Gustavo"
+    }
+}
