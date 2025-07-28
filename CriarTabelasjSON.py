@@ -33,23 +33,23 @@ cardapio={
 
 clientes={
     1: {"cpf": "12345678901",
-        "nome": "Francisco Lima"},
+        "clinome": "Francisco Lima"},
     2: {"cpf": "34545433476",
-        "nome": "Luiz Lins"},
+        "clinome": "Luiz Lins"},
     3: {"cpf": "86452454565",
-        "nome": "Láucia Ávila"},
+        "clinome": "Láucia Ávila"},
     4: {"cpf": "83434857205",
-        "nome": "Gabriel Junior"},
+        "clinome": "Gabriel Junior"},
     5: {"cpf": "34529485344",
-        "nome": "Clauber Lima"},
+        "clinome": "Clauber Lima"},
     6: {"cpf": "34523454676",
-        "nome": "Joao Henrique"},
+        "clinome": "Joao Henrique"},
     7: {"cpf": "75845366576",
-        "nome": "Vinicius Souza"},
+        "clinome": "Vinicius Souza"},
     8: {"cpf": "34587343459",
-        "nome": "Gustavo"}
+        "clinome": "Gustavo"}
 }
-
+clientes[9]={"cpf":"99234223591","clinome":"Jeniffer Alana"}
 
 # Grava em arquivo JSON
 #with open('cardapio.json', 'w', encoding='utf-8') as f:
