@@ -1,4 +1,4 @@
-
+# Uso para testes de conceitos
 import json
 #Aqui carregamos o cardapio.
 with open("cardapio.json",'r',encoding="utf-8") as f:
@@ -25,8 +25,8 @@ def pegarProximoPedido(pedidos):
     numeros = []
     for chave in chaves:
         numeros.append(int(chave))
-    ultimoPedido = max(numeros)
-    return ultimoPedido + 1
+    ultimoPedido=max(numeros)
+    return ultimoPedido+1
 
 # Pegando o pedido
 for chave in pedidos:

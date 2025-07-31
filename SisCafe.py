@@ -4,7 +4,7 @@
 #aluno  : Clauber Araújo Lima
 #Turma  : EADADS3A
 #Criacao: 20250716.1334
-__versao__ = 20250727.2104
+__versao__ = 20250731.0956
 
 import os, json
 import funcoes
@@ -40,7 +40,7 @@ def main():
         elif opcao==1:
             funcoes.listarCardapio(cardapio)
         elif opcao==2:
-            funcoes.anotarPedido()
+            funcoes.anotarPedido(pedidos,cardapio)
         elif opcao==3:
             funcoes.listarClientes(clientes)
         elif opcao==4:

@@ -1,6 +1,6 @@
 # Funcoes
 #Criacao: 20250718.1124
-__versao__ = 20250727.2104
+__versao__ = 20250731.0956
 
 import os, json
 
@@ -50,7 +50,7 @@ def listarClientes(clientes):
     print("\033[1;32m        CADASTRO DE CLIENTES:\033[0m")
     print(" ----------------------------------------------------------------")
     for id_cliente, dados in sorted(clientes.items(),key=lambda item: item[1]['clinome']):
-        print(f" {id_cliente} {dados['cpf']} {dados['clinome']}\033[0m")
+        print(f" {int(id_cliente):02} {dados['cpf']} {dados['clinome']}\033[0m")
 
 #listarVendas----------------------------------------------------------------
 def listarVendas(pedidos,cardapio):
@@ -60,13 +60,13 @@ def listarVendas(pedidos,cardapio):
     print("\033[1;32m         VENDAS\033[0m")
     print(" ----------------------------------------------------------------")
     for chave in pedidos:
-        pedido = pedidos[chave]
+        pedido=pedidos[chave]
         print(f" Pedido: {pedido['pedido']}",f"Data: {pedido['data']}")
         print(f" CPF: {pedido['clicpf']},  Nome: {pedido['clinome']}")
         print(" Itens:")
         total=0.0
         for prod_id in pedido["produtos"]:
-            #prod = cardapio.get(prod_id, {})
+            #prod=cardapio.get(prod_id, {})
             prod=cardapio.get(str(prod_id), {})
             nome=prod.get("prodnome", "Produto não encontrado")
             preco=prod.get("preco", 0.00)
@@ -81,19 +81,54 @@ def listarVendas(pedidos,cardapio):
 #pegarProximoPedido---------------------------------------------------------------------
 def pegarProximoPedido(pedidos):
     # Pega todas as chaves do dicionário (ex: "1", "2", "3")
-    chaves = pedidos.keys()
-    numeros = []
+    chaves=pedidos.keys()
+    numeros=[]
     for chave in chaves:
         numeros.append(int(chave))
     ultimoPedido=max(numeros)
     return ultimoPedido+1
 
+#pegarProximoPedido---------------------------------------------------------------------
+def pegarDescItem(cardapio, numItem):
+    item=cardapio.get(str(numItem))
+    if item:
+        nome = item.get("prodnome", "Descrição não encontrada")
+        preco = item.get("preco", 0.00)
+        return nome, preco
+    else:
+        return "Item não encontrado", 0.00
+
 #anotarPedido---------------------------------------------------------------------
-def anotarPedido():
+def anotarPedido(pedidos,cardapio):
     limparTela()
+    numProximoPedido=pegarProximoPedido(pedidos)
+    numItem=0
+    ItensPedido=[]
+    totalPedido=0.0
     print(" ----------------------------------------------------------------")
     print("\033[1;33m         ANOTAR PEDIDO:\033[0m")
     print(" ----------------------------------------------------------------")
+    print(" Pedido:\033[1;32m",numProximoPedido,"\033[0m")
+    print(" ----------------------------------------------------------------")
+    while True:
+        numItem=input("Item:")
+        if numItem=="" or int(numItem)==99:
+            break
+        descItem, precoItem=pegarDescItem(cardapio,numItem)
+        print(f"\033[1A\033[10C← ",descItem," - ",precoItem)#\033[1A\033[10C Volta uma linha e tabula
+        totalPedido+=float(precoItem)
+        ItensPedido.append(numItem)
+        #quant=input("\033[1A\033[45C Quant:")
+    print(" Total Pedido: '\033[1;31m",totalPedido,"\033[0m")
+    NomeCliente=input("\033[1;34m Nome do Clientes:\033[0m")
+    CPFCliente =input("\033[1;34m CPF  do Clientes:\033[0m")
+    print(ItensPedido)
+    #input(" ENTER para voltar.")
+
+
+
+
+
 
 
 
