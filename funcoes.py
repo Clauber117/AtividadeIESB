@@ -1,8 +1,10 @@
 # Funcoes
 #Criacao: 20250718.1124
-__versao__ = 20250731.0956
+__versao__ = 20250801.1013
 
 import os, json
+from datetime import date
+
 
 #MenuPrincipal-----------------------------------------------------------------------------#
 def MenuPrincipal():
@@ -99,31 +101,52 @@ def pegarDescItem(cardapio, numItem):
         return "Item não encontrado", 0.00
 
 #anotarPedido---------------------------------------------------------------------
-def anotarPedido(pedidos,cardapio):
+def anotarPedido(pedidos, cardapio):
     limparTela()
-    numProximoPedido=pegarProximoPedido(pedidos)
-    numItem=0
-    ItensPedido=[]
-    totalPedido=0.0
+    numProximoPedido = pegarProximoPedido(pedidos)
+    numItem = 0
+    ItensPedido = []
+    totalPedido = 0.0
+
     print(" ----------------------------------------------------------------")
     print("\033[1;33m         ANOTAR PEDIDO:\033[0m")
     print(" ----------------------------------------------------------------")
-    print(" Pedido:\033[1;32m",numProximoPedido,"\033[0m")
+    print(" Pedido:\033[1;32m", numProximoPedido, "\033[0m")
     print(" ----------------------------------------------------------------")
+
     while True:
-        numItem=input("Item:")
-        if numItem=="" or int(numItem)==99:
+        numItem = input("Item: ")
+        if numItem == "" or numItem == "99":
             break
-        descItem, precoItem=pegarDescItem(cardapio,numItem)
-        print(f"\033[1A\033[10C← ",descItem," - ",precoItem)#\033[1A\033[10C Volta uma linha e tabula
-        totalPedido+=float(precoItem)
-        ItensPedido.append(numItem)
-        #quant=input("\033[1A\033[45C Quant:")
-    print(" Total Pedido: '\033[1;31m",totalPedido,"\033[0m")
-    NomeCliente=input("\033[1;34m Nome do Clientes:\033[0m")
-    CPFCliente =input("\033[1;34m CPF  do Clientes:\033[0m")
-    print(ItensPedido)
-    #input(" ENTER para voltar.")
+        descItem, precoItem = pegarDescItem(cardapio, numItem)
+        print(f"\033[1A\033[10C← {descItem} - R$ {precoItem:.2f}")
+        totalPedido += float(precoItem)
+        ItensPedido.append(int(numItem))  # cast para garantir int
+
+    print(" Total Pedido: \033[1;31m", f"R$ {totalPedido:.2f}", "\033[0m")
+
+    NomeCliente = input("\033[1;34m Nome do Cliente:\033[0m ")
+    CPFCliente  = input("\033[1;34m CPF  do Cliente:\033[0m ")
+
+    # Montar o novo pedido
+    novoPedido = {
+        "pedido": numProximoPedido,
+        "data": date.today().strftime("%Y%m%d"),
+        "clicpf": CPFCliente,
+        "clinome": NomeCliente,
+        "produtos": ItensPedido
+    }
+
+    # Inserir no dicionário de pedidos
+    pedidos[str(numProximoPedido)] = novoPedido
+
+    # Gravar no arquivo pedidos.json
+    with open("pedidos.json", "w", encoding="utf-8") as f:
+        json.dump(pedidos, f, indent=4, ensure_ascii=False)
+
+    print("\n\033[1;32mPedido registrado com sucesso!\033[0m")
+    #input("Tecle ENTER para voltar.")
+
 
 
 

@@ -4,7 +4,7 @@
 #aluno  : Clauber Araújo Lima
 #Turma  : EADADS3A
 #Criacao: 20250716.1334
-__versao__ = 20250731.0956
+__versao__ = 20250801.1013
 
 import os, json
 import funcoes
