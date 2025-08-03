@@ -32,10 +32,6 @@ graph TD
         V --> W["Aguardar ENTER"];
         W --> F;
 
-        Q --> X;
-        S --> X;
-        U --> X;
-
         X --> Y["Aguardar ENTER para voltar"];
         Y --> F;
     end
