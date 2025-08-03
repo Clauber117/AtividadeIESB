@@ -32,7 +32,6 @@ graph TD
         V --> W["Aguardar ENTER"];
         W --> F;
 
-        O --> X["Exibir linha vazia"];
         Q --> X;
         S --> X;
         U --> X;
