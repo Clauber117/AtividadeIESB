@@ -5,7 +5,7 @@ graph TD
     subgraph main
         D["Inicio da funcao main()"];
         D --> E["Inicializar opcao com 1"];
-        E --> F{"Loop Principal (enquanto opcao !> 0)"};
+        E --> F{Loop Principal <br> (enquanto opcao != 0)};
         F -- Sim --> G["Exibir Menu Principal"];
         G --> H["Solicitar opcao do usuario"];
         H --> I{Tratar Erro de Entrada?};
@@ -31,6 +31,11 @@ graph TD
         T -- Nao --> V["Exibir "Opcao invalida""];
         V --> W["Aguardar ENTER"];
         W --> F;
+
+        O --> X["Exibir linha vazia"];
+        Q --> X;
+        S --> X;
+        U --> X;
 
         X --> Y["Aguardar ENTER para voltar"];
         Y --> F;

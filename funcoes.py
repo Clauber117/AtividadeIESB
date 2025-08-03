@@ -1,6 +1,6 @@
 # Funcoes
 #Criacao: 20250718.1124
-__versao__ = 20250801.1013
+__versao__ = 20250802.1118
 
 import os, json
 from datetime import date
@@ -9,8 +9,9 @@ from datetime import date
 #MenuPrincipal-----------------------------------------------------------------------------#
 def MenuPrincipal():
     limparTela()
+    data=date.today().strftime("%d/%m/%Y")
     print(" ----------------------------------------------------------------")
-    print("\033[1;43m                    Coffee Shops Tia Rosa                        \033[0m")
+    print(f"\033[1;43m                    Coffee Shops Tia Rosa              {data}\033[0m")
     print(" ----------------------------------------------------------------")
     print()
     print("            1- Cardapio")
@@ -36,7 +37,7 @@ def listarCardapio(cardapio):
     print(" ----------------------------------------------------------------")
     for id_produto, dados in cardapio.items():
         nome=dados['prodnome']
-        pontinhos='.'*(30-len(nome))#
+        pontinhos='.'*(30-len(nome))# aqui pra colocar os pontos para alinhar a listagem na e fazilitar a leitura
         print(f"\n {id_produto} {nome}{pontinhos} Preço:\033[1;32m R$ {dados['preco']:.2f}\033[0m")
         #print(f"\n{id_produto}",f"{dados['prodnome']}...........................",f"Preço: R$ {dados['preco']:.2f}")
         #print(f"Nome: {dados['prodnome']}")
@@ -121,14 +122,14 @@ def anotarPedido(pedidos, cardapio):
         descItem, precoItem = pegarDescItem(cardapio, numItem)
         print(f"\033[1A\033[10C← {descItem} - R$ {precoItem:.2f}")
         totalPedido += float(precoItem)
-        ItensPedido.append(int(numItem))  # cast para garantir int
+        ItensPedido.append(int(numItem))  # tyepcast para se colocar outra coisa não dê erro no programa
 
     print(" Total Pedido: \033[1;31m", f"R$ {totalPedido:.2f}", "\033[0m")
 
     NomeCliente = input("\033[1;34m Nome do Cliente:\033[0m ")
     CPFCliente  = input("\033[1;34m CPF  do Cliente:\033[0m ")
 
-    # Montar o novo pedido
+    # novo pedido
     novoPedido = {
         "pedido": numProximoPedido,
         "data": date.today().strftime("%Y%m%d"),
@@ -137,7 +138,7 @@ def anotarPedido(pedidos, cardapio):
         "produtos": ItensPedido
     }
 
-    # Inserir no dicionário de pedidos
+    # Inserir no json de pedidos
     pedidos[str(numProximoPedido)] = novoPedido
 
     # Gravar no arquivo pedidos.json
