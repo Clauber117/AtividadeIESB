@@ -3,9 +3,9 @@ graph TD
     A[Inicio] --> B{CarregarJSON}
     B-->C["Executar a funcao main()"]
     C-->D["Inicio da funcao main()"]
-    D --> E[Inicializar opcao com 1]
+    D --> E["Inicializar opcao com 1"]
     E --> F{Loop Principal (enquanto opcao != 0)}
-    F -- "Sim" --> G[Exibir Menu Principal]
+    F -- "Sim" --> G["Exibir Menu Principal"]
     G --> H[Solicitar opcao do usuario]
     H --> I{Tratar Erro de Entrada?}
     I -- "Sim (entrada invalida)" --> J[Exibir mensagem de erro]
