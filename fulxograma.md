@@ -3,7 +3,6 @@ graph TD
     A[Início do Programa] --> B{Carregar arquivos JSON};
     B --> main[Executar a função main()];
 
-    subgraph "Função Principal (main)"
         main --> D[Início da função main()];
         D --> E[Inicializar opção com 1];
         E --> F{Loop Principal (enquanto opção != 0)};
@@ -37,7 +36,6 @@ graph TD
         Q --> X;
         S --> X;
         U --> X;
-    end
     
     X --> Y[Aguardar ENTER para voltar];
     Y --> F;
