@@ -1,43 +1,43 @@
 ```mermaid
 graph TD
-    A[Início do Programa] --> B{Carregar arquivos JSON};
-    B --> C[Executar a função main()];
-    C --> D[Início da função main()];
-    D --> E[Inicializar opção com 1];
-    E --> F{Loop Principal (enquanto opção != 0)};
-    F -- Sim --> G[Exibir Menu Principal];
-    G --> H[Solicitar opção do usuário];
-    H --> I{Tratar Erro de Entrada?};
-    I -- Sim (entrada inválida) --> J[Exibir mensagem de erro];
-    J --> K[Aguardar ENTER];
-    K --> F;
+    A[Inicio do Programa] --> B{Carregar arquivos JSON}
+    B --> C[Executar a funcao main()]
+    C --> D[Inicio da funcao main()]
+    D --> E[Inicializar opcao com 1]
+    E --> F{Loop Principal (enquanto opcao != 0)}
+    F -- Sim --> G[Exibir Menu Principal]
+    G --> H[Solicitar opcao do usuario]
+    H --> I{Tratar Erro de Entrada?}
+    I -- Sim (entrada invalida) --> J[Exibir mensagem de erro]
+    J --> K[Aguardar ENTER]
+    K --> F
 
-    I -- Não (entrada válida) --> L{Opção == 0?};
-    L -- Sim --> M[Sair do loop (break)];
+    I -- Nao (entrada valida) --> L{Opcao == 0?}
+    L -- Sim --> M[Sair do loop (break)]
 
-    L -- Não --> N{Opção == 1?};
-    N -- Sim --> O[Chamar funcoes.listarCardapio()];
+    L -- Nao --> N{Opcao == 1?}
+    N -- Sim --> O[Chamar funcoes.listarCardapio()]
 
-    N -- Não --> P{Opção == 2?};
-    P -- Sim --> Q[Chamar funcoes.anotarPedido()];
+    N -- Nao --> P{Opcao == 2?}
+    P -- Sim --> Q[Chamar funcoes.anotarPedido()]
 
-    P -- Não --> R{Opção == 3?};
-    R -- Sim --> S[Chamar funcoes.listarClientes()];
+    P -- Nao --> R{Opcao == 3?}
+    R -- Sim --> S[Chamar funcoes.listarClientes()]
 
-    R -- Não --> T{Opção == 4?};
-    T -- Sim --> U[Chamar funcoes.listarVendas()];
+    R -- Nao --> T{Opcao == 4?}
+    T -- Sim --> U[Chamar funcoes.listarVendas()]
 
-    T -- Não --> V[Exibir "Opção inválida"];
-    V --> W[Aguardar ENTER];
-    W --> F;
+    T -- Nao --> V[Exibir "Opcao invalida"]
+    V --> W[Aguardar ENTER]
+    W --> F
 
-    O --> X[Exibir linha vazia];
-    Q --> X;
-    S --> X;
-    U --> X;
+    O --> X[Exibir linha vazia]
+    Q --> X
+    S --> X
+    U --> X
 
-    X --> Y[Aguardar ENTER para voltar];
-    Y --> F;
+    X --> Y[Aguardar ENTER para voltar]
+    Y --> F
 
-    F -- Não (opção == 0) --> Z[Fim da função main()];
-    Z --> Fim[Fim do Programa];
+    F -- Nao (opcao == 0) --> Z[Fim da funcao main()]
+    Z --> Fim[Fim do Programa]
