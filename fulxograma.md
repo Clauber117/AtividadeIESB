@@ -1,6 +1,6 @@
 ```mermaid
 graph TD
-    A[Inicio do Programa] --> B{Carregar arquivos JSON}
+    A[Inicio] --> B{CarregarJSON}
     B --> C[Executar a funcao main()]
     C --> D[Inicio da funcao main()]
     D --> E[Inicializar opcao com 1]
