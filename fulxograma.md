@@ -13,26 +13,26 @@ graph TD
         I -- Sim (entrada inválida) --> J[Exibir mensagem de erro];
         J --> K[Aguardar ENTER];
         K --> F;
-
+        
         I -- Não (entrada válida) --> L{Opção == 0?};
         L -- Sim --> M[Sair do loop (break)];
-
+        
         L -- Não --> N{Opção == 1?};
         N -- Sim --> O[Chamar funcoes.listarCardapio()];
-
+        
         N -- Não --> P{Opção == 2?};
         P -- Sim --> Q[Chamar funcoes.anotarPedido()];
-
+        
         P -- Não --> R{Opção == 3?};
         R -- Sim --> S[Chamar funcoes.listarClientes()];
-
+        
         R -- Não --> T{Opção == 4?};
         T -- Sim --> U[Chamar funcoes.listarVendas()];
-
+        
         T -- Não --> V[Exibir "Opção inválida"];
         V --> W[Aguardar ENTER];
         W --> F;
-
+        
         O --> X[Exibir linha vazia];
         Q --> X;
         S --> X;
@@ -41,6 +41,6 @@ graph TD
         X --> Y[Aguardar ENTER para voltar];
         Y --> F;
     end
-
+    
     F -- Não (opção == 0) --> Z[Fim da função main()];
     Z --> Fim[Fim do Programa];
