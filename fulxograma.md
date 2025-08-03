@@ -1,8 +1,8 @@
 ```mermaid
 graph TD
     A[Inicio] --> B{CarregarJSON}
-    B --> C[Executar a funcao main()]
-    C --> D[Inicio da funcao main()]
+    B-->C[Executar a funcao main()]
+    C-->D[Inicio da funcao main()]
     D --> E[Inicializar opcao com 1]
     E --> F{Loop Principal (enquanto opcao != 0)}
     F -- "Sim" --> G[Exibir Menu Principal]
