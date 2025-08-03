@@ -1,4 +1,3 @@
-```mermaid
 graph TD
     A[Início do Programa] --> B{Carregar arquivos JSON};
     B --> C[Executar a função main()];
