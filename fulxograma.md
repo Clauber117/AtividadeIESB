@@ -1,4 +1,4 @@
-
+```mermaid
 graph TD
     A["Inicio do Programa"] --> B{Carregar arquivos JSON};
     B --> C["Executar a funcao main()"];
