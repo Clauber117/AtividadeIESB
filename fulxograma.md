@@ -1,34 +1,34 @@
 ```mermaid
 graph TD
-    A["Início do Programa'] --> B{Carregar arquivos JSON};
-    B --> C["Executar a função main()'];
+    A["Inicio do Programa'] --> B{Carregar arquivos JSON};
+    B --> C["Executar a funcao main()'];
     subgraph main
-        D["Início da função main()'];
-        D --> E["Inicializar opção com 1'];
-        E --> F{Loop Principal <br> (enquanto opção != 0)};
+        D["Inicio da funcao main()'];
+        D --> E["Inicializar opcao com 1'];
+        E --> F{Loop Principal <br> (enquanto opcao != 0)};
         F -- Sim --> G["Exibir Menu Principal'];
-        G --> H["Solicitar opção do usuário'];
+        G --> H["Solicitar opcao do usuario'];
         H --> I{Tratar Erro de Entrada?};
-        I -- Sim (entrada inválida) --> J["Exibir mensagem de erro'];
+        I -- Sim (entrada invalida) --> J["Exibir mensagem de erro'];
         J --> K["Aguardar ENTER'];
         K --> F;
 
-        I -- Não (entrada válida) --> L{Opção == 0?};
+        I -- Nao (entrada valida) --> L{Opcao == 0?};
         L -- Sim --> M["Sair do loop (break)'];
 
-        L -- Não --> N{Opção == 1?};
+        L -- Nao --> N{Opcao == 1?};
         N -- Sim --> O["Chamar funcoes.listarCardapio()'];
 
-        N -- Não --> P{Opção == 2?};
+        N -- Nao --> P{Opcao == 2?};
         P -- Sim --> Q["Chamar funcoes.anotarPedido()'];
 
-        P -- Não --> R{Opção == 3?};
+        P -- Nao --> R{Opcao == 3?};
         R -- Sim --> S["Chamar funcoes.listarClientes()'];
 
-        R -- Não --> T{Opção == 4?};
+        R -- Nao --> T{Opcao == 4?};
         T -- Sim --> U["Chamar funcoes.listarVendas()'];
 
-        T -- Não --> V["Exibir "Opção inválida"'];
+        T -- Nao --> V["Exibir "Opcao invalida"'];
         V --> W["Aguardar ENTER'];
         W --> F;
 
@@ -41,5 +41,5 @@ graph TD
         Y --> F;
     end
 
-    F -- Não (opção == 0) --> Z["Fim da função main()'];
+    F -- Nao (opcao == 0) --> Z["Fim da funcao main()'];
     Z --> Fim["Fim do Programa'];
